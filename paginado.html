@@ -1,0 +1,25 @@
+<div class="pagination wrapper flex-row space-between">
+                {% if not simple_list_page %}
+                <div class="pages-navigation flex-row align-center blog__pagination">
+                  {% if current_page_num > 1 %}
+                  {% set previous = current_page_num - 1 %}
+                  <a class="blog__pagination__btn" rel="nofollow" href="{{ blog_page_link(previous) }}">
+                    <span class="btn"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                  </a>
+                  {% endif %} 
+                  {% if current_page_num %}
+                  <a href="{{ content.post_slug }}" class="page-number btn current blog__pagination__btn">
+                    <span>{{ current_page_num }}</span>
+                  </a>
+                  {% endif %} 
+                  {% if next_page_num %}
+                  <a href="{{ blog_page_link(next_page_num) }}" class="page-number btn blog__pagination__btn">
+                    <span>{{next_page_num }}</span>
+                  </a>
+                  <a rel="nofollow" href="{{ blog_page_link(next_page_num) }}" class="blog__pagination__btn">
+                    <span class="btn"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                  </a>
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
